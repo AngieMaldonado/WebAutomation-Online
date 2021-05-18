@@ -1,0 +1,220 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.choucair.formacion.GCO</groupId>
+    <artifactId>com.choucair.formacion.GCO</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>com.choucair.formacion</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <serenity.version>2.0.52</serenity.version> <!-- https://bintray.com/serenity/maven/serenity-core/ -->
+        <serenity.maven.version>2.0.52</serenity.maven.version>
+        <serenity.cucumber.version>1.9.39</serenity.cucumber.version>
+        <surefire.fork.count>1</surefire.fork.count>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.testSource>1.8</maven.compiler.testSource>
+        <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+    </properties>
+
+    <!-- Define the Bintray repos for convenience -->
+    <repositories>
+        <repository>
+            <id>serenity</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/serenity/maven</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>serenity</id>
+            <name>bintray-plugins</name>
+            <url>http://dl.bintray.com/serenity/maven</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity.cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <!-- dependency> <groupId>org.codehaus.groovy</groupId> <artifactId>groovy-all</artifactId>
+            <version>1.8.6</version> </dependency -->
+        <!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId>
+            <version>4.12</version> <scope>test</scope> </dependency> -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Conexion JDBC a la db -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.0.0</version>
+        </dependency>
+        <!-- POI : Excel library -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <!-- Request y responses de servicios rest intercambio de mensajes requieren
+            json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <!--dependency> <groupId>io.rest-assured</groupId> <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version> </dependency -->
+
+        <!-- <dependency> <groupId>org.testng</groupId> <artifactId>testng</artifactId>
+            <version>6.11</version> <scope>test</scope> </dependency> -->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.jt400</groupId>
+            <artifactId>jt400-full</artifactId>
+            <version>6.0</version>
+        </dependency>
+
+        <!-- Conexion JDBC a la db -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils -->
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.7</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <configuration>
+                            <showDeprecation>true</showDeprecation>
+                            <showWarnings>true</showWarnings>
+                            <compilerArguments>
+                                <source>${maven.compiler.source}</source>
+                                <target>${maven.compiler.target}</target>
+                            </compilerArguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <configuration>
+                            <showDeprecation>true</showDeprecation>
+                            <showWarnings>true</showWarnings>
+                            <compilerArguments>
+                                <source>${maven.compiler.testTarget}</source>
+                                <target>${maven.compiler.testSource}</target>
+                            </compilerArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <version>${serenity.maven.version}</version>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20.1</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <includes>
+                        <!-- include>**/suites/ServicioVerificarDisponibilidadClienteTestSuite.java</include -->
+                        <!-- include>**/suites/ServicioConfirmacionProcesoTestSuite.java</include -->
+                        <!-- include>**/suites/ServicioObtenerRecaudosPendientesTestSuite.java</include -->
+                        <!-- include>**/suites/ServicioCancelacionProcesoTestSuite.java</include -->
+                        <!-- include>**/suites/ServicioNotificarPagoTestSuite.java</include -->
+                        <!-- include>**/suites/RecibosTestSuite.java</include -->
+                        <!-- include>**/suites/AnulacionReciboTestSuite.java</include -->
+                        <!-- include>**/suites/CreditosTestSuite.java</include -->
+                        <!-- include>**/suites/AnulacionCreditoTestSuite.java</include -->
+                        <!-- include>**/suites/VerificarReferenciasTestSuite.java</include -->
+                        <!-- include>**/suites/EdicionSolicitudTestSuite.java</include -->
+                        <!-- include>**/suites/ActualizacionTestSuite.java</include -->
+                    </includes>
+                    <!-- systemProperties> <webdriver.driver>${webdriver.driver}</webdriver.driver>
+                        </systemProperties -->
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
