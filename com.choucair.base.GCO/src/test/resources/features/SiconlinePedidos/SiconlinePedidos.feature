@@ -26,7 +26,7 @@ Feature: Formulario de pedido
 
     Examples:
       | name  | cliente             | concepto | marca | transportadora | ref      | PLU           | cantPLU | formaPag          |
-      | caso1 | monicams@gco.com.co | 100      | 03    | coordinadora   | 87056318 | 8445306703545 | 1       | 2 - VISA DATAFONO |
+      | caso1 | monicams@gco.com.co | 100      | 03    | coordinadora   | 87056318 | 8445306703545 | 2       | 2 - VISA DATAFONO |
 
 #  @CasoFallidoClienteObligatorio
 #  Scenario Outline: Diligenciar de manera incorrecta la información
